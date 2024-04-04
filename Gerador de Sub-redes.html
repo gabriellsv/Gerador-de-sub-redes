@@ -1,0 +1,77 @@
+<!
+======================
+ATIVIDADE 4 RAC
+======================
+-->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action="">
+
+        <h3>Quantos Sub Rede você quer?<input type="text" id="input">
+
+            <button onclick="calc()">submit</button>
+
+            <div>
+
+                <p id="demo"></p>
+
+            </div>
+    </form>
+
+</body>
+<script>
+
+    document.getElementById("input").focus();
+
+    let times, line = 0
+
+    let count = 3, num = 1, arr_num2 = 0
+
+    //let dep = ['Fiscal', 'Pessoal', 'Vendas', 'Estoque'], arr_num = 0
+
+    let desc = ['(End da sub-rede )', '( 1º end válido )', '( ùltimo end válido )', '( End Broadcast )']
+    function calc() {
+
+        times = document.getElementById("input").value
+        times = times * 4
+        // times++
+        while (times > line) {
+
+            inter()
+
+            document.writeln(`200.7.7. ${line} ${desc[arr_num2]} <br>`)
+
+            if (arr_num2 == 3) arr_num2 = 0; else arr_num2++
+
+            line++
+        }
+    }
+    function inter() {
+
+        if (count == 3) {
+
+            document.writeln(`<br><br> ${num} ° Sub_Rede <br>`)     //('Depto ' + dep[arr_num] + ' )'
+            document.writeln(`255.255.255.252 (máscara)<br>`)
+            count = 0
+
+            num++
+
+            //if (arr_num == 3) arr_num = 0; else arr_num++
+
+        } else count++
+
+
+    }
+
+</script>
+
+</html>
